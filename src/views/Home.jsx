@@ -1,12 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, setState } from "react";
 
-const Home = ({ data }) => {
+//components
+import Darkmode from "../components/darkmode";
 
-    return (
-        <div>
-            test
-        </div>
-    )
+class Home extends React.Component {
+
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+            tset: 0
+        }; 
+    }
+
+    componentDidMount() {
+
+    }
+    
+    componentWillUnmount() {
+        
+    }
+
+    render() {
+        return (
+            <div>
+                <Darkmode/>
+            </div>
+        )
+    }
 };
 
-export default props => <Home {...props} />;
+export default Home;

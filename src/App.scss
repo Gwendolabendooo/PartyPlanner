@@ -1,11 +1,23 @@
 // change the theme
-$primary: green;
-$secondary: rgb(148, 173, 148);
+:root {
+  --font-color: #424242;
+  --bg-color: #fff;
+}
+
+[data-theme="dark"] {
+  --font-color: #e1e1ff;
+  --bg-color: #161625;
+}
+
+$primary: rgb(214, 84, 24);
+$secondary: rgb(135, 227, 135);
 $danger: #fa5c7c;
 $warning: #ffbc00;
 
 body{
-  color: $primary;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  transition: background .4s, color .4s;
 }
 
 .border-primary{
