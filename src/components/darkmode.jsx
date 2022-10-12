@@ -37,18 +37,10 @@ class Darkmode extends React.Component {
 
     render() {
         return (
-            <div>
-                <label className="switch">
-                    <input type="checkbox" id="darkmode" checked={this.state.darkmode} onChange={(e) => this.switchTheme(e)} />
-                    <span className="slider round"></span>
-                </label>
-                <div>
-                    test
-                </div>
-                <div className="text-primary">
-                    je suis primaire
-                </div>
-            </div>
+            <label className="switch">
+                <input type="checkbox" id="darkmode" checked={this.state.darkmode} onChange={(e) => this.switchTheme(e)} />
+                <span className="slider round"></span>
+            </label>
         )
     }
 };

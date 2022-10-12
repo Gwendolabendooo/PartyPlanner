@@ -1,7 +1,7 @@
 import React, { useState, setState } from "react";
 
 //components
-import Darkmode from "../components/darkmode";
+import Navbar from "../components/navbar";
 
 class Home extends React.Component {
 
@@ -24,7 +24,7 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <Darkmode/>
+                <Navbar/>
             </div>
         )
     }
