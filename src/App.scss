@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
 // change the theme
 :root {
   --font-color: #424242;
@@ -26,7 +28,7 @@ body{
   color: var(--font-color);
   transition: background .4s, color .4s;
   margin: 0;
-  font-family: cursive;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .countrys{
@@ -109,6 +111,13 @@ input + .slider {
 
 .text-warning{
   color: $warning;
+}
+
+.popin{
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 115px;
+  background-color:  var(--bgtrans);
 }
 
 .bg-black{

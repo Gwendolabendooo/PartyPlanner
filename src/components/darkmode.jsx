@@ -45,10 +45,12 @@ class Darkmode extends React.Component {
                     rotate={0}
                     className="ml-1"
                     color="white"/>
-                <Icon path={mdiWhiteBalanceSunny}
+                {this.state.darkmode !== true ? 
+                    <Icon path={mdiWhiteBalanceSunny}
                     size={.95}
                     rotate={0}
-                    color="black"/>
+                    color="black"/> : null
+                    }
                 <input type="checkbox" id="darkmode" checked={this.state.darkmode} onChange={(e) => this.switchTheme(e)} />
                 <span className="slider round"></span>
             </label>
