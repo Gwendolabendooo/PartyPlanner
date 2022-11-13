@@ -3,12 +3,16 @@
   --font-color: #424242;
   --bg-color: #fff;
   --white: #fff;
+  --bgtrans: #00000012;
+  --not-select: rgba(0, 0, 0, 0.319);
 }
 
 [data-theme="dark"] {
   --font-color: #e1e1ff;
   --bg-color: hsl(240deg 13% 11%);
   --white: #000;
+  --bgtrans: #ffffff1c;
+  --not-select: #434555;
 }
 
 $primary: #2de2cf;
@@ -25,8 +29,21 @@ body{
   font-family: cursive;
 }
 
+.countrys{
+  background: var(--bgtrans);
+}
+
 a{
   text-decoration: none;
+  color: var(--not-select);
+}
+
+.icons{
+  color: var(--font-color);
+}
+
+.m-auto{
+  margin: auto;
 }
 
 ul{
@@ -34,6 +51,10 @@ ul{
   margin-block-start: 0em;
   margin-block-end: 0em;
   padding-inline-start: 0px;
+}
+
+ul > li{
+  padding: 0.75rem;
 }
 
 h1{
@@ -51,8 +72,8 @@ h3{
   transition: background .4s, color .4s;
 }
 
-input:checked + .slider {
-  background-color: $primary!important;
+input + .slider {
+  background-color: var(--bgtrans);
 }
 
 .button-primary{

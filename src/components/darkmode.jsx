@@ -1,4 +1,6 @@
 import React, { useState, setState } from "react";
+import Icon from '@mdi/react';
+import { mdiWeatherNight, mdiWhiteBalanceSunny } from '@mdi/js';
 
 import "../steel/darkmode.css"
 
@@ -37,7 +39,16 @@ class Darkmode extends React.Component {
 
     render() {
         return (
-            <label className="switch">
+            <label className="switch d-flex align-items-center justify-content-between">
+                <Icon path={mdiWeatherNight}
+                    size={.95}
+                    rotate={0}
+                    className="ml-1"
+                    color="white"/>
+                <Icon path={mdiWhiteBalanceSunny}
+                    size={.95}
+                    rotate={0}
+                    color="black"/>
                 <input type="checkbox" id="darkmode" checked={this.state.darkmode} onChange={(e) => this.switchTheme(e)} />
                 <span className="slider round"></span>
             </label>
