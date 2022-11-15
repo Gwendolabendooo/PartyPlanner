@@ -2,9 +2,11 @@ import React from 'react';
 
 const Translate = ({keys}) => {
     const fr = {
+        Home: "Accueil"
     }
 
     const en = {
+        Home: "Home"
     }
 
     let country = localStorage.getItem("country");

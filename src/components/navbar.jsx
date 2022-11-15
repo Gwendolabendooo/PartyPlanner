@@ -14,9 +14,9 @@ import Flag from 'react-world-flags'
 
 //medias
 import Logo2 from '../medias/logo2.png'
-import Fr from '../medias/fr.png'
-import En from '../medias/en.png'
-import Ger from '../medias/ger.png'
+import FR from '../medias/fr.png'
+import EN from '../medias/en.png'
+import GB from '../medias/ger.png'
 
 class Navbar extends React.Component {
 
@@ -24,16 +24,22 @@ class Navbar extends React.Component {
         super(props);
     
         this.state = {
-            test: true
+            showLang: false,
+            language: localStorage.getItem("country")
         }; 
     }
 
     componentDidMount() {
     }
 
+    changeLang(lang){
+        localStorage.setItem("country", lang);
+        this.setState({ language: lang, showLang: false })
+    }
+
     render() {
         return (
-            <nav className="d-flex align-items-center flex-wrap justify-content-between shadow">
+            <nav className="d-flex align-items-center flex-wrap justify-content-between shadow position-fixed left-0 top-0 w-100">
                 <ul className="m-2 d-flex align-items-center">
                     <li className="mr-3">
                         <NavLink to="/">
@@ -66,37 +72,40 @@ class Navbar extends React.Component {
                     <div className="m-auto mr-3">
                         <Darkmode/>
                     </div>
-                    <div className="rounded-pill countrys p-1 d-flex m-auto position-relative flex-column" style={{paddingTop: 0, paddingBottom: 0}}>
-                        <div className="d-flex align-content-center align-items-center p-1">
-                            <img src={Fr} width="30px" alt="" />
+                    <div className="rounded-pill countrys p-1 d-flex m-auto position-relative flex-column" style={{paddingTop: 0, paddingBottom: 0, width: "93px"}}>
+                        <div className="d-flex align-content-center align-items-center p-1 cursor-pointer" onClick={() => this.setState({ showLang: !this.state.showLang })}>
+                            <img src={this.state.language === "FR" ? FR : this.state.language === "EN" ? EN : GB} width="30px" alt="" />
                             <div className="ml-1">
-                                FR
+                                {this.state.language}
                             </div>
                             <Icon path={mdiChevronDown}
                                 size={.95}
                                 rotate={0}
                                 className="icons"/>
                         </div>
-                        <div className="position-absolute popin rounded countrys w-100">
-                            <div className="d-flex flex-row p-2">
-                                <img src={Fr} width="30px" alt="" />
-                                <div className="ml-1">
-                                    FR
+                        {this.state.showLang ?
+                            <div className="position-absolute popin rounded countrys w-100 cursor-pointer">
+                                <div className={this.state.language === "FR" ? "d-flex flex-row p-2 hide" : "d-flex flex-row p-2 rub-lang"} onClick={() => this.changeLang("FR")}>
+                                    <img src={FR} width="30px" alt="" />
+                                    <div className="ml-1">
+                                        FR
+                                    </div>
+                                </div>
+                                <div className={this.state.language === "EN" ? "d-flex flex-row p-2 hide" : "d-flex flex-row p-2 rub-lang"} onClick={() => this.changeLang("EN")}>
+                                    <img src={EN} width="30px" alt="" />
+                                    <div className="ml-1">
+                                        EN
+                                    </div>
+                                </div>
+                                <div className={this.state.language === "GB" ? "d-flex flex-row p-2 hide" : "d-flex flex-row p-2 rub-lang"} onClick={() => this.changeLang("GB")}>
+                                    <img src={GB} width="30px" alt="" />
+                                    <div className="ml-1">
+                                        GB
+                                    </div>
                                 </div>
                             </div>
-                            <div className="d-flex flex-row border-top p-2">
-                                <img src={En} width="30px" alt="" />
-                                <div className="ml-1">
-                                    EN
-                                </div>
-                            </div>
-                            <div className="d-flex flex-row border-top p-2">
-                                <img src={Ger} width="30px" alt="" />
-                                <div className="ml-1">
-                                    GB
-                                </div>
-                            </div>
-                        </div>
+                            :null
+                        }
                     </div>
                     <div className="p-2 mr-2 ml-4">
                         <Translate keys={"Sign up"}/>
